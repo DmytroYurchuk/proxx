@@ -91,7 +91,7 @@ class TestProxxGame(unittest.TestCase):
 
         self.assertTrue(result)
 
-    @patch('sys.stdout', new_callable=StringIO)
+    @patch("sys.stdout", new_callable=StringIO)
     def test_print_board(self, mock_stdout):
         self.game.visible_board = [["-", "1", "-"],
                                     ["2", "-", "3"],
@@ -108,7 +108,7 @@ class TestProxxGame(unittest.TestCase):
         self.assertEqual(self.game.width, 4)
         self.assertEqual(self.game.height, 5)
     
-    @patch('sys.stdout', new_callable=StringIO)
+    @patch("sys.stdout", new_callable=StringIO)
     def test_get_board_size_invalid_input(self, _):
         with patch("builtins.input", side_effect=["invalid", "3", "6"]):
             self.game.get_board_size()
@@ -122,7 +122,7 @@ class TestProxxGame(unittest.TestCase):
             self.game.get_num_holes()
         self.assertEqual(self.game.num_holes, 8)
 
-    @patch('sys.stdout', new_callable=StringIO)
+    @patch("sys.stdout", new_callable=StringIO)
     def test_get_num_holes_invalid_input(self, _):
         self.game.width = 5
         self.game.height = 5
